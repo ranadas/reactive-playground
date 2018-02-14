@@ -1,5 +1,6 @@
 package com.rdas;
 
+import com.rdas.service.StockService;
 import com.rdas.service.StreamRunner;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ public class ApplicationMain implements CommandLineRunner {
     @Autowired
     private StreamRunner streamRunner;
 
+    @Autowired
+    private StockService stockService;
+
     public static void main(String[] args) {
         SpringApplication.run(ApplicationMain.class, args);
     }
@@ -23,5 +27,6 @@ public class ApplicationMain implements CommandLineRunner {
     public void run(String... strings) throws Exception {
         log.info("\n Calling command Runner services here \n");
         streamRunner.start();
+        stockService.start();
     }
 }
