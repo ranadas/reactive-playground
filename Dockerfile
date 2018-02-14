@@ -30,7 +30,7 @@ RUN export JAVA_HOME
 RUN	mkdir /api
 WORKDIR /api
 
-ADD target/grid-reactive.jar  boot-app.jar
+ADD target/reactive-playground.jar  boot-app.jar
 RUN chmod 777 -R /api
 
 ENTRYPOINT ["java" ,"-Djava.security.egd=file:/dev/./urandom", "-jar" ,"boot-app.jar"]
